@@ -1,10 +1,13 @@
 from django.shortcuts import render,HttpResponse
 from home.models import Contact
 from django.contrib import messages
+from blog.models import Post
 
 # Create your views here.
 def home(request):
-    return render(request,'home/home.html')
+    allpost = Post.objects.all()
+    context = {'allpost':allpost}
+    return render(request,'home/home.html',context)
     # return HttpResponse('this is home')
 def contact(request):
     messages.success(request,'Welcome to contact.')
