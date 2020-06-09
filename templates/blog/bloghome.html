@@ -4,75 +4,31 @@
 
 {% block body %}
 <div class="container my-4">
-    <div class="d-flex justify-content-center align-items-center my-3"><h2>Latest Blog posts</h2></div>
-   
-    <div class="row mb-2">
+  <div class="d-flex justify-content-center align-items-center my-3">
+    <h2>Latest Blog posts</h2>
+  </div>
+
+  <div class="row mb-2">
+    {% for post in allpost  %}
     <div class="col-md-6">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-danger">Technology</strong>
-          <h3 class="mb-0">MSI GSS-6</h3>
-          <div class="mb-1 text-muted">Nov 12</div>
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to
-            additional content.</p>
-          <a href="/blog/blogpost" class="stretched-link">Continue reading</a>
+          <h3 class="mb-0">{{ post.title }}</h3>
+          <h6 class="mb-0 text-info">-{{post.author}}</h6>
+          <div class="mb-1 text-muted">{{post.datetime}}</div>
+          <p class="card-text mb-auto">{{ post.content| truncatechars:100 }}</p>
+          <a href="/blog/{{ post.slug }}" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
           <img class="bd-placeholder-img" width="200" height="250" src="images/t1.jpg" alt="">
         </div>
       </div>
     </div>
+    {% endfor %}
+  </div>
 
-    <div class="col-md-6">
-      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">Web Devlopment</strong>
-          <h3 class="mb-0">Frontend frameworks</h3>
-          <div class="mb-1 text-muted">Nov 11</div>
-          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional
-            content.</p>
-          <a href="#" class="stretched-link">Continue reading</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <img class="bd-placeholder-img" width="200" height="250" src="images/t2.jpg" alt="">
-        </div>
-      </div>
-    </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static order-md-2">
-              <strong class="d-inline-block mb-2 text-danger">Technology</strong>
-              <h3 class="mb-0">MSI GSS-6</h3>
-              <div class="mb-1 text-muted">Nov 12</div>
-              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to
-                additional content.</p>
-              <a href="#" class="stretched-link">Continue reading</a>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <img class="bd-placeholder-img" width="200" height="250" src="images/t1.jpg" alt="">
-            </div>
-          </div>
-        </div>
-    
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static order-md-2">
-              <strong class="d-inline-block mb-2 text-success">Web Devlopment</strong>
-              <h3 class="mb-0">Frontend frameworks</h3>
-              <div class="mb-1 text-muted">Nov 11</div>
-              <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional
-                content.</p>
-              <a href="#" class="stretched-link">Continue reading</a>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <img class="bd-placeholder-img" width="200" height="250" src="images/t2.jpg" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
+  
 
 </div>
 {% endblock body %}
