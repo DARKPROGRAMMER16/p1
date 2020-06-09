@@ -1,4 +1,5 @@
 .vscode/
+__pycache__
 blog/__pycache__/
 home/__pycache__/
 v1/
