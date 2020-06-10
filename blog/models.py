@@ -6,6 +6,7 @@ class Post(models.Model):
     num = models.IntegerField()
     title = models.CharField(max_length = 255)
     content = models.TextField()
+    overview = models.TextField()
     author = models.CharField(max_length = 255)
     slug = models.CharField(max_length = 255)
     timestamp = models.DateTimeField(blank=True)

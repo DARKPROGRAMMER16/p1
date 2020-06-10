@@ -30,3 +30,17 @@ def contact(request):
 def about(request):
     return render(request,'home/about.html')
     # return HttpResponse('this is about')
+
+def search(request):
+    query = request.GET['query']
+    if len(query)<3:
+        apost = Post.objects.none()
+    else:
+        aposttitle = Post.objects.filter(title__icontains=query)
+        apostcontent = Post.objects.filter(content__icontains=query)
+        apost = aposttitle.union(apostcontent)
+    if apost.count() == 0:
+        messages.warning(request,"No search result found. ")
+    params = {'apost':apost,'query':query}
+    return render(request,'home/search.html',params)
+    # return HttpResponse('this is search')

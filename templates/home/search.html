@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
-{% block title %} Blog {% endblock title %}
+{% block title %} search result {% endblock title %}
 {% block bac %}active{% endblock bac %}
 
 {% block body %}
 <div class="container my-4">
   <div class="d-flex justify-content-center align-items-center my-3">
-    <h2>Latest Blog posts</h2>
+    <h2>Search results :</h2>
   </div>
 
   <div class="row mb-2">
-    {% for post in allpost  %}
+  {% if apost|length < 1 %}
+ <div><p>No search result found</p></div>
+  {% endif %}
+    {% for post in apost  %}
     
     <div class="col-md-6">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
