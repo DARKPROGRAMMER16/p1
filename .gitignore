@@ -2,5 +2,6 @@
 __pycache__
 blog/__pycache__/
 home/__pycache__/
+# virtual enviorment files
 v1/
 VD/__pycache__/
