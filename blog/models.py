@@ -8,7 +8,7 @@ class Post(models.Model):
     content = models.TextField()
     overview = models.TextField()
     author = models.CharField(max_length = 255)
-    image = models.ImageField(upload_to='static/blog',blank=True,null=True)
+    image = models.ImageField(upload_to='blog/images',default="")
     slug = models.CharField(max_length = 255)
     timestamp = models.DateTimeField(blank=True)
 
