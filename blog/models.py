@@ -1,14 +1,23 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.timezone import now
+from ckeditor.fields import RichTextField
+from tinymce.models import HTMLField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 class Post(models.Model):
     sno = models.AutoField(primary_key = True)
     num = models.IntegerField()
     title = models.CharField(max_length = 255)
-    content = models.TextField()
-    overview = models.TextField()
+    # content = models.TextField()
+    content = RichTextUploadingField(blank=True,null=True)
+    # overview = models.TextField()
+    overview = RichTextField(blank=True,null=True)
+    # about = RichTextField(blank=True,null=True)
+    about = RichTextUploadingField(blank=True,null=True)
+    # about = HTMLField(blank=True,null=True)
+
     author = models.CharField(max_length = 255)
     image = models.ImageField(upload_to='blog/images',default="")
     slug = models.CharField(max_length = 255)

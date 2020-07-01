@@ -18,6 +18,8 @@ from django.urls import path,include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.conf.urls.static import static
+from blog import views
+
 
 admin.site.site_header = "Version Delta Admin"
 admin.site.site_title = "Version Delta Admin Panel"
@@ -27,6 +29,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('blog/', include('blog.urls')),
+    path('tinymce/', include('tinymce.urls')),
+    path('ckeditor',include('ckeditor_uploader.urls')),
 ]
 urlpatterns += staticfiles_urlpatterns()
 if settings.DEBUG:
