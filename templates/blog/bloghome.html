@@ -18,8 +18,8 @@
           <strong class="d-inline-block mb-2 text-danger">Technology</strong>
           <h3 class="mb-0">{{ post.title }}</h3>
           <h6 class="mb-0 text-info">-{{post.author}}</h6>
-          <div class="mb-1 text-muted">{{post.datetime}}</div>
-          <p class="card-text mb-auto">{{ post.overview| truncatechars:75 }}</p>
+          <div class="mb-1 text-muted">{{post.timestamp|date}}</div>
+          <p class="card-text mb-auto">{{ post.overview|truncatechars:75}}</p>
           <a href="/blog/{{ post.slug }}" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
